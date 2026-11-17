@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پرچون نرخ نامہ برائے پھل و سبزی | مارکیٹ کمیٹی لاہور - حکومت پنجاب</title>
+
+    <!-- Google Fonts: Noto Nastaliq Urdu, Noto Sans Arabic & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        urdu: ['"Noto Sans Arabic"', '"Noto Nastaliq Urdu"', 'sans-serif'],
+                        nastaliq: ['"Noto Nastaliq Urdu"', '"Noto Sans Arabic"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', '"Noto Sans Arabic"', 'sans-serif'],
+                    },
+                    colors: {
+                        punjab: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: #ffffff !important; color: #000000 !important; }
+            .print-shadow-none { box-shadow: none !important; border: 1px solid #cbd5e1 !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-urdu antialiased transition-colors duration-300 selection:bg-punjab-700 selection:text-white">
+
+    <!-- Custom Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 left-5 z-50 flex flex-col gap-3 pointer-events-none no-print"></div>
+
+    <!-- Top Official Government Utility Bar -->
+    <div class="bg-punjab-900 text-white border-b border-punjab-700/70 text-xs sm:text-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gold-500/20 text-gold-400 border border-gold-400/40">
+                    <i class="fa-solid fa-landmark text-xs"></i>
+                </span>
+                <span class="font-semibold tracking-wide">فوڈ سیفٹی اینڈ کنزیومر پروٹیکشن ڈیپارٹمنٹ، حکومت پنجاب</span>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+                <div class="flex items-center gap-2 bg-punjab-950/70 px-3 py-1 rounded-full border border-punjab-700">
+                    <span class="text-punjab-200">برائے شکایت:</span>
+                    <a href="tel:080002345" dir="ltr" class="font-sans font-bold text-gold-400 hover:text-gold-300 tracking-wider">0800-02345</a>
+                    <button id="copy-helpline-btn" type="button" title="ہیلپ لائن نمبر کاپی کریں" class="text-punjab-300 hover:text-white transition-colors pr-1 cursor-pointer">
+                        <i class="fa-regular fa-copy text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" type="button" aria-label="تھیم تبدیل کریں" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer">
+                    <i id="theme-icon" class="fa-solid fa-moon text-xs"></i>
+                    <span id="theme-label" class="text-xs font-medium">ڈارک موڈ</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Official Portal Header -->
+    <header class="bg-gradient-to-l from-punjab-800 via-punjab-800 to-punjab-900 text-white shadow-lg border-b-4 border-gold-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 sm:py-9">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <!-- Government Emblem & Official Titles -->
+                <div class="flex items-start sm:items-center gap-4 sm:gap-5">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 backdrop-blur-md border-2 border-gold-400/60 flex flex-col items-center justify-center shrink-0 shadow-xl">
+                        <i class="fa-solid fa-scale-balanced text-2xl sm:text-3xl text-gold-400"></i>
+                        <span dir="ltr" class="font-sans text-[10px] font-extrabold tracking-widest text-white mt-1">PAMRA</span>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-gold-500 text-slate-950 font-bold text-xs">سرکاری نرخ نامہ</span>
+                            <span class="text-punjab-200 text-xs sm:text-sm font-medium">مارکیٹ کمیٹی، لاہور (PAMRA)</span>
+                        </div>
+                        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-snug">
+                            پرچون نرخ نامہ برائے پھل و سبزی
+                        </h1>
+                        <p class="text-punjab-100 text-xs sm:text-sm">
+                            فوڈ سیفٹی اینڈ کنزیومر پروٹیکشن ڈیپارٹمنٹ، حکومت پنجاب — <span class="text-gold-300 font-semibold">فی کلوگرام / درجن / فی عدد</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Date, Day & Official Fee Metadata Card -->
+                <div class="bg-punjab-950/60 backdrop-blur-md border border-punjab-600/50 rounded-2xl p-4 sm:p-5 flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-6 shrink-0">
+                    <div class="space-y-1">
+                        <span class="text-xs text-punjab-300 block">مورخہ (تاریخِ اجراء)</span>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-regular fa-calendar-check text-gold-400"></i>
+                            <span dir="ltr" class="font-sans font-extrabold text-lg sm:text-xl text-white tracking-wide">16/11/2026</span>
+                        </div>
+                    </div>
+
+                    <div class="h-10 w-px bg-punjab-700 hidden sm:block"></div>
+
+                    <div class="space-y-1">
+                        <span class="text-xs text-punjab-300 block">بروز</span>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-gold-400"></i>
+                            <span class="font-bold text-lg sm:text-xl text-gold-400">پیر</span>
+                        </div>
+                    </div>
+
+                    <div class="h-10 w-px bg-punjab-700 hidden sm:block"></div>
+
+                    <div class="space-y-1">
+                        <span class="text-xs text-punjab-300 block">سرکاری فیس</span>
+                        <span class="inline-block px-2.5 py-1 rounded-lg bg-white/10 text-xs sm:text-sm font-bold text-white border border-white/15">
+                            20 روپے فی ریٹ لسٹ
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2-Page Navigation Switcher & Controls Bar -->
+    <div class="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                
+                <!-- 2-Page Switcher Tabs (Page 1: Fruits | Page 2: Vegetables) -->
+                <div role="tablist" aria-label="ریٹ لسٹ صفحات" class="grid grid-cols-2 sm:inline-flex p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 gap-1.5">
+                    <button id="tab-fruits" role="tab" aria-selected="true" type="button" onclick="switchPage('fruits')" class="flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl text-sm sm:text-base font-bold transition-all cursor-pointer bg-punjab-700 text-white shadow-md shadow-punjab-700/25">
+                        <i class="fa-solid fa-apple-whole"></i>
+                        <span>صفحہ 1: پھلوں کے نرخ نامے</span>
+                    </button>
+
+                    <button id="tab-vegetables" role="tab" aria-selected="false" type="button" onclick="switchPage('vegetables')" class="flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl text-sm sm:text-base font-bold transition-all cursor-pointer text-slate-700 dark:text-slate-300 hover:bg-white/70 dark:hover:bg-slate-700/70">
+                        <i class="fa-solid fa-carrot"></i>
+                        <span>صفحہ 2: سبزیوں کے نرخ نامے</span>
+                    </button>
+                </div>
+
+                <!-- Search, Filter & Print Controls -->
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <!-- Search Input -->
+                    <div class="relative flex-1 sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input id="search-input" type="text" placeholder="نام پھل یا سبزی تلاش کریں..." class="w-full pr-10 pl-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-punjab-600 transition-all">
+                    </div>
+
+                    <!-- Filter Dropdown -->
+                    <select id="rate-filter" aria-label="ریٹ فلٹر" class="px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-punjab-600 cursor-pointer">
+                        <option value="all">تمام اشیاء دکھائیں</option>
+                        <option value="available">صرف دستیاب نرخ (Available)</option>
+                        <option value="unavailable">غیر مقررہ نرخ (-)</option>
+                    </select>
+
+                    <!-- Print Button -->
+                    <button type="button" onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white text-xs sm:text-sm font-semibold transition-colors cursor-pointer">
+                        <i class="fa-solid fa-print"></i>
+                        <span class="hidden sm:inline">پرنٹ کریں</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Summary Statistics & Official Notice Banner -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Stat 1: Active Page Title -->
+            <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-sm print-shadow-none flex items-center gap-4">
+                <div id="stat-icon-box" class="w-12 h-12 rounded-xl bg-punjab-100 dark:bg-punjab-950 text-punjab-700 dark:text-punjab-400 flex items-center justify-center text-xl shrink-0">
+                    <i id="stat-icon" class="fa-solid fa-apple-whole"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">موجودہ فہرست</p>
+                    <h2 id="stat-category-name" class="text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">پرچون نرخ نامہ برائے پھل</h2>
+                </div>
+            </div>
+
+            <!-- Stat 2: Total Listed Items -->
+            <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-sm print-shadow-none flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-950/70 text-amber-700 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-list-ol"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">کل درج شدہ اقسام</p>
+                    <p dir="ltr" id="stat-total-count" class="font-sans text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5 text-right">37</p>
+                </div>
+            </div>
+
+            <!-- Stat 3: Priced Items Today -->
+            <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-sm print-shadow-none flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-tags"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">مقرر کردہ نرخ شدہ اشیاء</p>
+                    <p dir="ltr" id="stat-priced-count" class="font-sans text-2xl font-extrabold text-emerald-700 dark:text-emerald-400 mt-0.5 text-right">31</p>
+                </div>
+            </div>
+
+            <!-- Stat 4: Complaint Helpline Card -->
+            <div class="rounded-2xl bg-gradient-to-br from-amber-500 to-gold-600 text-slate-950 p-5 shadow-sm flex items-center justify-between gap-3">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-slate-900/80">شکایات و گراں فروشی سیل</p>
+                    <a href="tel:080002345" dir="ltr" class="font-sans text-2xl font-black tracking-tight text-slate-950 block mt-0.5 hover:underline">
+                        0800-02345
+                    </a>
+                    <p class="text-[11px] font-semibold text-slate-900/90 mt-0.5">حکومت پنجاب ٹول فری ہیلپ لائن</p>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-slate-950/15 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 1: FRUITS RATE LIST SECTION -->
+        <section id="page-fruits" class="space-y-6">
+            <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg shadow-slate-200/40 dark:shadow-none overflow-hidden print-shadow-none">
+                <!-- Table Header Banner -->
+                <div class="bg-punjab-50 dark:bg-punjab-950/60 border-b border-slate-200 dark:border-slate-800 px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="px-2.5 py-0.5 rounded-md bg-punjab-700 text-white text-xs font-bold">صفحہ نمبر 1</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-punjab-900 dark:text-punjab-300">
+                                پرچون نرخ نامہ برائے پھل
+                            </h2>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            فی کلوگرام / درجن / فی عدد — مارکیٹ کمیٹی، لاہور | مورخہ <span dir="ltr" class="font-sans font-bold">16/11/2026</span> بروز پیر
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2 text-xs font-semibold">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600"></span> درجہ اول (Rs.)
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+                            <span class="w-2 h-2 rounded-full bg-amber-500"></span> درجہ دوئم (Rs.)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Responsive Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-punjab-800 text-white text-sm sm:text-base">
+                                <th class="py-4 px-4 sm:px-6 font-bold w-16 text-center border-l border-punjab-700">#</th>
+                                <th class="py-4 px-4 sm:px-6 font-bold border-l border-punjab-700">نام پھل (Fruit Name)</th>
+                                <th class="py-4 px-4 sm:px-6 font-bold text-center w-36 sm:w-44 border-l border-punjab-700 bg-punjab-700/80">
+                                    اول (Grade 1)
+                                    <span class="block text-[11px] font-normal text-punjab-200">روپے (Rs.)</span>
+                                </th>
+                                <th class="py-4 px-4 sm:px-6 font-bold text-center w-36 sm:w-44">
+                                    دوئم (Grade 2)
+                                    <span class="block text-[11px] font-normal text-punjab-200">روپے (Rs.)</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="fruits-table-body" class="divide-y divide-slate-200 dark:divide-slate-800 text-sm sm:text-base">
+                            <!-- Populated cleanly via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty Search State -->
+                <div id="fruits-empty" class="hidden py-14 px-6 text-center">
+                    <i class="fa-solid fa-magnifying-glass text-3xl text-slate-400 mb-3"></i>
+                    <p class="text-base font-bold text-slate-700 dark:text-slate-300">کوئی متعلقہ پھل نہیں ملا</p>
+                    <p class="text-xs text-slate-500 mt-1">براہ کرم تلاش کے الفاظ تبدیل کریں یا فلٹر صاف کریں۔</p>
+                </div>
+            </div>
+
+            <!-- Next Page Quick Navigation Button -->
+            <div class="flex justify-end no-print">
+                <button type="button" onclick="switchPage('vegetables')" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-punjab-700 hover:bg-punjab-800 text-white font-bold text-sm sm:text-base shadow-lg shadow-punjab-700/20 transition-all hover:-translate-y-0.5 cursor-pointer">
+                    <span>اگلا صفحہ دیکھیں: سبزیوں کے نرخ نامے (صفحہ 2)</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- PAGE 2: VEGETABLES RATE LIST SECTION -->
+        <section id="page-vegetables" class="hidden space-y-6">
+            <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg shadow-slate-200/40 dark:shadow-none overflow-hidden print-shadow-none">
+                <!-- Table Header Banner -->
+                <div class="bg-punjab-50 dark:bg-punjab-950/60 border-b border-slate-200 dark:border-slate-800 px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="px-2.5 py-0.5 rounded-md bg-punjab-700 text-white text-xs font-bold">صفحہ نمبر 2</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-punjab-900 dark:text-punjab-300">
+                                پرچون نرخ نامہ برائے سبزی
+                            </h2>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            فی کلوگرام — مارکیٹ کمیٹی، لاہور | مورخہ <span dir="ltr" class="font-sans font-bold">16/11/2026</span> بروز پیر
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2 text-xs font-semibold">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600"></span> درجہ اول (Rs.)
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+                            <span class="w-2 h-2 rounded-full bg-amber-500"></span> درجہ دوئم (Rs.)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Responsive Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-punjab-800 text-white text-sm sm:text-base">
+                                <th class="py-4 px-4 sm:px-6 font-bold w-16 text-center border-l border-punjab-700">#</th>
+                                <th class="py-4 px-4 sm:px-6 font-bold border-l border-punjab-700">نام سبزی (Vegetable Name)</th>
+                                <th class="py-4 px-4 sm:px-6 font-bold text-center w-36 sm:w-44 border-l border-punjab-700 bg-punjab-700/80">
+                                    اول (Grade 1)
+                                    <span class="block text-[11px] font-normal text-punjab-200">روپے (Rs.)</span>
+                                </th>
+                                <th class="py-4 px-4 sm:px-6 font-bold text-center w-36 sm:w-44">
+                                    دوئم (Grade 2)
+                                    <span class="block text-[11px] font-normal text-punjab-200">روپے (Rs.)</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="vegetables-table-body" class="divide-y divide-slate-200 dark:divide-slate-800 text-sm sm:text-base">
+                            <!-- Populated cleanly via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty Search State -->
+                <div id="vegetables-empty" class="hidden py-14 px-6 text-center">
+                    <i class="fa-solid fa-magnifying-glass text-3xl text-slate-400 mb-3"></i>
+                    <p class="text-base font-bold text-slate-700 dark:text-slate-300">کوئی متعلقہ سبزی نہیں ملی</p>
+                    <p class="text-xs text-slate-500 mt-1">براہ کرم تلاش کے الفاظ تبدیل کریں یا فلٹر صاف کریں۔</p>
+                </div>
+            </div>
+
+            <!-- Previous Page Quick Navigation Button -->
+            <div class="flex justify-start no-print">
+                <button type="button" onclick="switchPage('fruits')" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-punjab-700 hover:bg-punjab-800 text-white font-bold text-sm sm:text-base shadow-lg shadow-punjab-700/20 transition-all hover:-translate-y-0.5 cursor-pointer">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>پچھلا صفحہ دیکھیں: پھلوں کے نرخ نامے (صفحہ 1)</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Official Government Stamp, Note & Signatories Section (Appears on Both Pages) -->
+        <section class="rounded-3xl bg-white dark:bg-slate-900 border-2 border-punjab-700/30 dark:border-punjab-700/50 p-6 sm:p-8 shadow-md print-shadow-none space-y-6">
+            <!-- Official Stamp & Fee Warning -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex items-start gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-red-100 dark:bg-red-950/70 text-red-700 dark:text-red-400 flex items-center justify-center text-lg shrink-0 mt-0.5">
+                        <i class="fa-solid fa-stamp"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-red-700 dark:text-red-400">ضروری سرکاری ہدایت</span>
+                        <p class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">
+                            نوٹ: اصل مہر کے بغیر فوٹو کاپی قبول نہ ہوگی
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <span class="px-4 py-2 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-300 font-bold text-sm">
+                        قیمت: 20 روپے فی ریٹ لسٹ
+                    </span>
+                    <a href="tel:080002345" class="px-4 py-2 rounded-xl bg-punjab-700 hover:bg-punjab-800 text-white font-bold text-sm inline-flex items-center gap-2 transition-colors">
+                        <i class="fa-solid fa-headset"></i>
+                        <span>برائے شکایت: <span dir="ltr" class="font-sans">0800-02345</span></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4 Issuing Market Committee Secretaries (Signatories Grid) -->
+            <div>
+                <h3 class="text-sm font-bold text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-signature text-punjab-600"></i>
+                    <span>مجاز اتھارٹیز و دستخط کنندگان (Issuing Authorities):</span>
+                </h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-4 text-center space-y-2">
+                        <div class="w-10 h-10 mx-auto rounded-full bg-punjab-100 dark:bg-punjab-900/70 text-punjab-700 dark:text-punjab-300 flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">سیکرٹری</p>
+                        <p class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">مارکیٹ کمیٹی لاہور</p>
+                    </div>
+
+                    <div class="rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-4 text-center space-y-2">
+                        <div class="w-10 h-10 mx-auto rounded-full bg-punjab-100 dark:bg-punjab-900/70 text-punjab-700 dark:text-punjab-300 flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">سیکرٹری</p>
+                        <p class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">مارکیٹ کمیٹی کوٹ لکھپت</p>
+                    </div>
+
+                    <div class="rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-4 text-center space-y-2">
+                        <div class="w-10 h-10 mx-auto rounded-full bg-punjab-100 dark:bg-punjab-900/70 text-punjab-700 dark:text-punjab-300 flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">سیکرٹری</p>
+                        <p class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">مارکیٹ کمیٹی ملتان روڈ</p>
+                    </div>
+
+                    <div class="rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-4 text-center space-y-2">
+                        <div class="w-10 h-10 mx-auto rounded-full bg-punjab-100 dark:bg-punjab-900/70 text-punjab-700 dark:text-punjab-300 flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">سیکرٹری</p>
+                        <p class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">مارکیٹ کمیٹی سنگھ پورہ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Official Government Footer -->
+    <footer class="bg-punjab-950 text-punjab-200 border-t border-punjab-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
+            <div class="flex items-center gap-3 text-center sm:text-right">
+                <i class="fa-solid fa-shield-halved text-gold-400 text-lg"></i>
+                <div>
+                    <p class="font-bold text-white">فوڈ سیفٹی اینڈ کنزیومر پروٹیکشن ڈیپارٹمنٹ، حکومت پنجاب</p>
+                    <p class="text-punjab-300 text-xs mt-0.5">پنجاب ایگریکلچرل مارکیٹنگ ریگولیٹری اتھارٹی (PAMRA) — مارکیٹ کمیٹی لاہور</p>
+                </div>
+            </div>
+
+            <div class="text-center sm:text-left">
+                <p class="text-punjab-300">مورخہ <span dir="ltr" class="font-sans font-bold text-white">16/11/2026</span> بروز پیر</p>
+                <p class="text-xs text-gold-400 font-semibold mt-0.5">برائے شکایت ٹول فری نمبر: <span dir="ltr" class="font-sans">0800-02345</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Data & Application Logic -->
+    <script>
+        // Exact Fruits Data extracted from "rate listt fruit.pdf"
+        const fruitsData = [
+            { name: "آم کچا", en: "Raw Mango", grade1: null, grade2: null },
+            { name: "آم فجری", en: "Fajri Mango", grade1: null, grade2: null },
+            { name: "آم چونسہ لیٹ", en: "Late Chaunsa Mango", grade1: null, grade2: null },
+            { name: "انگور کالا", en: "Black Grapes", grade1: 470, grade2: 450 },
+            { name: "انگور سفید موٹا", en: "White Large Grapes", grade1: 320, grade2: 305 },
+            { name: "انگور گولہ", en: "Gola Grapes", grade1: 280, grade2: 267 },
+            { name: "انگور سندرخانی", en: "Sundarkhani Grapes", grade1: 690, grade2: 657 },
+            { name: "انگور ثانی (تھانی)", en: "Sani / Thani Grapes", grade1: 485, grade2: 462 },
+            { name: "امرود", en: "Guava", grade1: 200, grade2: 191 },
+            { name: "انار قندھاری", en: "Kandahari Pomegranate", grade1: 680, grade2: 650 },
+            { name: "انار دانے دار", en: "Danedar Pomegranate", grade1: 805, grade2: 770 },
+            { name: "پپیتا", en: "Papaya", grade1: 280, grade2: 267 },
+            { name: "تربوز", en: "Watermelon", grade1: null, grade2: null },
+            { name: "جاپانی پھل", en: "Persimmon (Japani Phal)", grade1: 300, grade2: 285 },
+            { name: "چیکو / دیگر (غیر درج شدہ آئٹم)", en: "Chikoo / Unlisted Item", grade1: 250, grade2: 240 },
+            { name: "خربوزہ", en: "Muskmelon (Kharbooza)", grade1: 180, grade2: 172 },
+            { name: "سنگھاڑے", en: "Water Chestnut (Singhara)", grade1: 90, grade2: 86 },
+            { name: "سیب سفید نیا", en: "White New Apple", grade1: 260, grade2: 242 },
+            { name: "سیب کالا کولو میدانی", en: "Kala Kulu Apple (Plains)", grade1: 220, grade2: 205 },
+            { name: "سیب گاجہ پیش", en: "Gaja Pesh Apple", grade1: null, grade2: null },
+            { name: "سیب کالا کولو پہاڑی سپیشل", en: "Kala Kulu Hill Special Apple", grade1: 410, grade2: 382 },
+            { name: "سیب کالا کولو پہاڑی", en: "Kala Kulu Hill Apple", grade1: 320, grade2: 297 },
+            { name: "شکر قندی", en: "Sweet Potato", grade1: 90, grade2: 85 },
+            { name: "فروٹر درجن", en: "Fruiter (Per Dozen)", grade1: 150, grade2: 142 },
+            { name: "کیلا درجن اول", en: "Banana Grade 1 (Per Dozen)", grade1: 160, grade2: 145 },
+            { name: "کیلا درجن دوم", en: "Banana Grade 2 (Per Dozen)", grade1: 120, grade2: 107 },
+            { name: "کھجور اعراقی", en: "Iraqi Dates", grade1: 340, grade2: 325 },
+            { name: "کھجور ایرانی", en: "Iranian Dates", grade1: 435, grade2: 415 },
+            { name: "کھجور اصیل", en: "Aseel Dates", grade1: 310, grade2: 295 },
+            { name: "گنڈیریاں", en: "Sugarcane Pieces (Ganderiyan)", grade1: 55, grade2: 52 },
+            { name: "گریپ فروٹ فی عدد", en: "Grapefruit (Per Piece)", grade1: 31, grade2: 30 },
+            { name: "مسمی درجن", en: "Sweet Lime / Mosambi (Per Dozen)", grade1: 165, grade2: 157 },
+            { name: "میٹھا درجن", en: "Meetha Citrus (Per Dozen)", grade1: null, grade2: null },
+            { name: "کینو / کمی کے لئے (فی عدد/درجن)", en: "Kinnow / Reduction Item", grade1: 30, grade2: 29 },
+            { name: "مالٹا شکری درجن", en: "Shukri Malta (Per Dozen)", grade1: 145, grade2: 137 },
+            { name: "ناشپاتی چائینہ", en: "China Pear", grade1: 460, grade2: 440 },
+            { name: "ناریل فی عدد", en: "Coconut (Per Piece)", grade1: 485, grade2: 465 }
+        ];
+
+        // Exact Vegetables Data extracted from "rate listt vegetable.pdf.pdf"
+        const vegetablesData = [
+            { name: "آلو نیا کچا چھلکا", en: "New Potato (Raw Skin)", grade1: null, grade2: null },
+            { name: "آلو شوگر فری", en: "Sugar-Free Potato", grade1: 50, grade2: 46 },
+            { name: "ادرک تھائی لینڈ", en: "Thailand Ginger", grade1: 360, grade2: 345 },
+            { name: "ادرک چائینہ", en: "China Ginger", grade1: 350, grade2: 335 },
+            { name: "اروی", en: "Taro Root (Arvi)", grade1: 130, grade2: 124 },
+            { name: "بینگن", en: "Brinjal / Eggplant", grade1: 80, grade2: 76 },
+            { name: "بند گوبھی", en: "Cabbage", grade1: 120, grade2: 114 },
+            { name: "بھنڈی", en: "Ladyfinger / Okra", grade1: 150, grade2: 142 },
+            { name: "پیاز", en: "Onion", grade1: 180, grade2: 170 },
+            { name: "پالک فارمی", en: "Farm Spinach (Palak)", grade1: 40, grade2: 38 },
+            { name: "پھول گوبھی", en: "Cauliflower", grade1: 100, grade2: 95 },
+            { name: "پھلیاں موٹی", en: "Thick Beans", grade1: null, grade2: null },
+            { name: "پھلیاں باریک", en: "Thin Beans", grade1: 130, grade2: 124 },
+            { name: "ٹماٹر اول", en: "Tomato Grade 1", grade1: 190, grade2: 180 },
+            { name: "ٹماٹر دوم", en: "Tomato Grade 2", grade1: 160, grade2: 150 },
+            { name: "ٹینڈے دیسی", en: "Desi Tinda (Apple Gourd)", grade1: 200, grade2: 190 },
+            { name: "حلوہ کدو", en: "Pumpkin (Halwa Kaddu)", grade1: 35, grade2: 32 },
+            { name: "ساگ", en: "Mustard Greens (Saag)", grade1: 40, grade2: 38 },
+            { name: "سبز مرچ", en: "Green Chilli", grade1: 120, grade2: 114 },
+            { name: "شملہ مرچ", en: "Capsicum / Bell Pepper", grade1: 210, grade2: 200 },
+            { name: "شلجم", en: "Turnip (Shaljam)", grade1: 90, grade2: 85 },
+            { name: "کریلا", en: "Bitter Gourd (Karela)", grade1: 130, grade2: 124 },
+            { name: "کھیرا فارمی", en: "Farm Cucumber", grade1: 60, grade2: 57 },
+            { name: "گھیا کدو", en: "Bottle Gourd (Ghia Kaddu)", grade1: 120, grade2: 114 },
+            { name: "گھیا توری", en: "Ridge Gourd (Ghia Tori)", grade1: 140, grade2: 133 },
+            { name: "گاجر چائینہ", en: "China Carrot", grade1: 220, grade2: 210 },
+            { name: "گاجر دیسی", en: "Desi Carrot", grade1: 70, grade2: 66 },
+            { name: "لہسن دیسی", en: "Desi Garlic", grade1: 235, grade2: 225 },
+            { name: "لہسن ہرنائی", en: "Harnai Garlic", grade1: 365, grade2: 350 },
+            { name: "لہسن چائینہ", en: "China Garlic", grade1: 440, grade2: 420 },
+            { name: "لیموں دیسی", en: "Desi Lemon", grade1: null, grade2: null },
+            { name: "لیموں چائینہ", en: "China Lemon", grade1: 55, grade2: 52 },
+            { name: "مونگرے", en: "Radish Pods (Mongray)", grade1: 210, grade2: 200 },
+            { name: "میتھی", en: "Fenugreek Leaves (Methi)", grade1: 80, grade2: 76 },
+            { name: "مٹر", en: "Green Peas (Matar)", grade1: 200, grade2: 190 },
+            { name: "مولی", en: "Radish (Mooli)", grade1: 40, grade2: 38 }
+        ];
+
+        let currentPage = 'fruits';
+
+        // Format Price Badge helper
+        function formatRateBadge(rate, isPrimaryGrade) {
+            if (rate === null || rate === undefined) {
+                return `<span dir="ltr" class="inline-flex items-center justify-center min-w-[3.5rem] px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-sans font-bold text-sm">—</span>`;
+            }
+            if (isPrimaryGrade) {
+                return `<span dir="ltr" class="inline-flex items-center justify-center min-w-[4.5rem] px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/80 font-sans font-extrabold text-base">${rate}</span>`;
+            }
+            return `<span dir="ltr" class="inline-flex items-center justify-center min-w-[4.5rem] px-3 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200/80 dark:border-amber-800/70 font-sans font-bold text-base">${rate}</span>`;
+        }
+
+        // Render Table Rows for Fruits or Vegetables
+        function renderTable(type) {
+            const data = type === 'fruits' ? fruitsData : vegetablesData;
+            const tbody = document.getElementById(`${type}-table-body`);
+            const emptyState = document.getElementById(`${type}-empty`);
+            const query = document.getElementById('search-input').value.trim().toLowerCase();
+            const filter = document.getElementById('rate-filter').value;
+
+            const filtered = data.filter(item => {
+                const matchesText = item.name.toLowerCase().includes(query) || item.en.toLowerCase().includes(query);
+                const hasRate = item.grade1 !== null || item.grade2 !== null;
+                if (filter === 'available' && !hasRate) return false;
+                if (filter === 'unavailable' && hasRate) return false;
+                return matchesText;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            tbody.innerHTML = filtered.map((item, idx) => `
+                <tr class="hover:bg-punjab-50/70 dark:hover:bg-punjab-950/40 transition-colors">
+                    <td dir="ltr" class="py-3.5 px-4 sm:px-6 text-center font-sans font-semibold text-xs text-slate-400 dark:text-slate-500 border-l border-slate-100 dark:border-slate-800/80">
+                        ${idx + 1}
+                    </td>
+                    <td class="py-3.5 px-4 sm:px-6 border-l border-slate-100 dark:border-slate-800/80">
+                        <div class="font-bold text-slate-900 dark:text-white text-base sm:text-lg">${item.name}</div>
+                        <div dir="ltr" class="font-sans text-xs text-slate-500 dark:text-slate-400 text-right">${item.en}</div>
+                    </td>
+                    <td class="py-3.5 px-4 sm:px-6 text-center border-l border-slate-100 dark:border-slate-800/80 bg-emerald-50/20 dark:bg-emerald-950/10">
+                        ${formatRateBadge(item.grade1, true)}
+                    </td>
+                    <td class="py-3.5 px-4 sm:px-6 text-center">
+                        ${formatRateBadge(item.grade2, false)}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Update Summary Stats for Active Page
+        function updateStats(type) {
+            const data = type === 'fruits' ? fruitsData : vegetablesData;
+            const pricedCount = data.filter(item => item.grade1 !== null || item.grade2 !== null).length;
+
+            document.getElementById('stat-total-count').textContent = data.length;
+            document.getElementById('stat-priced-count').textContent = pricedCount;
+
+            const catTitle = document.getElementById('stat-category-name');
+            const statIcon = document.getElementById('stat-icon');
+
+            if (type === 'fruits') {
+                catTitle.textContent = 'پرچون نرخ نامہ برائے پھل';
+                statIcon.className = 'fa-solid fa-apple-whole';
+            } else {
+                catTitle.textContent = 'پرچون نرخ نامہ برائے سبزی';
+                statIcon.className = 'fa-solid fa-carrot';
+            }
+        }
+
+        // Switch Between Page 1 (Fruits) and Page 2 (Vegetables)
+        function switchPage(page) {
+            currentPage = page;
+            const fruitsSection = document.getElementById('page-fruits');
+            const vegSection = document.getElementById('page-vegetables');
+            const tabFruits = document.getElementById('tab-fruits');
+            const tabVeg = document.getElementById('tab-vegetables');
+
+            const activeClasses = ['bg-punjab-700', 'text-white', 'shadow-md', 'shadow-punjab-700/25'];
+            const inactiveClasses = ['text-slate-700', 'dark:text-slate-300', 'hover:bg-white/70', 'dark:hover:bg-slate-700/70'];
+
+            if (page === 'fruits') {
+                fruitsSection.classList.remove('hidden');
+                vegSection.classList.add('hidden');
+
+                tabFruits.setAttribute('aria-selected', 'true');
+                tabVeg.setAttribute('aria-selected', 'false');
+
+                tabFruits.classList.add(...activeClasses);
+                tabFruits.classList.remove(...inactiveClasses);
+
+                tabVeg.classList.remove(...activeClasses);
+                tabVeg.classList.add(...inactiveClasses);
+            } else {
+                vegSection.classList.remove('hidden');
+                fruitsSection.classList.add('hidden');
+
+                tabVeg.setAttribute('aria-selected', 'true');
+                tabFruits.setAttribute('aria-selected', 'false');
+
+                tabVeg.classList.add(...activeClasses);
+                tabVeg.classList.remove(...inactiveClasses);
+
+                tabFruits.classList.remove(...activeClasses);
+                tabFruits.classList.add(...inactiveClasses);
+            }
+
+            updateStats(page);
+            renderTable(page);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Custom Toast Helper
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto bg-slate-900 text-white border border-punjab-600 shadow-2xl rounded-2xl px-4 py-3 flex items-center gap-3 text-sm font-semibold transform translate-y-4 opacity-0 transition-all duration-300';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-gold-400"></i><span>${message}</span>`;
+            container.appendChild(toast);
+
+            requestAnimationFrame(() => toast.classList.remove('translate-y-4', 'opacity-0'));
+            setTimeout(() => {
+                toast.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Event Listeners Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTable('fruits');
+            renderTable('vegetables');
+            updateStats('fruits');
+
+            // Search & Filter Listeners
+            document.getElementById('search-input').addEventListener('input', () => renderTable(currentPage));
+            document.getElementById('rate-filter').addEventListener('change', () => renderTable(currentPage));
+
+            // Copy Helpline Number
+            document.getElementById('copy-helpline-btn').addEventListener('click', () => {
+                const temp = document.createElement('textarea');
+                temp.value = '0800-02345';
+                temp.style.position = 'fixed';
+                temp.style.left = '-9999px';
+                document.body.appendChild(temp);
+                temp.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('ہیلپ لائن نمبر 0800-02345 کاپی کر لیا گیا ہے');
+                } catch (e) {
+                    showToast('ہیلپ لائن نمبر: 0800-02345');
+                }
+                document.body.removeChild(temp);
+            });
+
+            // Dark / Light Mode Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeLabel = document.getElementById('theme-label');
+
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                if (isDark) {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    themeLabel.textContent = 'لائٹ موڈ';
+                } else {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    themeLabel.textContent = 'ڈارک موڈ';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
